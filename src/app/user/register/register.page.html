@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pinpot</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form  #form="ngForm" (ngSubmit)="register();">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div text-center>
+              <h3>Register</h3>
+            </div>
+            <div padding>
+              <ion-item>
+                <ion-input [(ngModel)]="user.name" name="username" type="text" placeholder="Name" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input [(ngModel)]="user.email" name="useremail" type="email" placeholder="your@email.com" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input [(ngModel)]="user.password" name="password" type="password" placeholder="Password" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input [(ngModel)]="confirm" name="confirm" type="password" placeholder="Password again" required></ion-input>
+              </ion-item>
+              <ion-radio-group name="gender" [(ngModel)]="user.gender">
+                <ion-list-header>
+                  <ion-label>Gender</ion-label>
+                </ion-list-header>
+                <ion-item>
+                  <ion-label>Male</ion-label>
+                  <ion-radio slot="start" color="primary" value="M" checked></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Female</ion-label>
+                  <ion-radio slot="start" color="primary" value="F"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+            </div>
+            <div padding>
+              <ion-button type="submit" [disabled]="form.invalid" expand="block">Register</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-content>

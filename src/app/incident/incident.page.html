@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Incident List</ion-title>
+    <ion-buttons slot="primary">
+        <ion-button color="primary" id="btn-add-incident" [routerLink]="['/new-incident']">
+            <ion-icon slot="start" name="add"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let incident of incidents" [routerLink]="['./',incident.id]">
+      <ion-avatar>
+        <img [src]="incident.severity.imageUrl"/>
+      </ion-avatar>
+      <ion-label margin>
+        <h2>{{incident.id}}</h2>
+        <h4>{{incident.severity.text}}</h4>
+        <p>{{
+          incident.address.road + "," + 
+          incident.address.area + "," + 
+          incident.address.landmark + "," + 
+          incident.address.city 
+        }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

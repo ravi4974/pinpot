@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Confirm Incident</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img style="width:200px;height:200px;" alt="No Image Available" [src]="incident.image"/>
+        </ion-col>
+        <ion-col text-center>
+            <ion-img padding margin [src]="incident.severity.imageUrl"></ion-img>
+          <ion-label>{{incident.severity.text}}</ion-label>
+        </ion-col>
+      </ion-row>
+      <h4 margin>Address:</h4>
+      <ion-row margin>
+        <ion-col>
+          <ion-text>
+            {{incident.address.road}}<br/>
+            {{incident.address.area}}<br/>
+            {{incident.address.landmark}}<br/>
+            {{incident.address.city}}
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button class="ion-float-right" (click)="save();">Save</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  
